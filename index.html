@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun Bilqis 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(120deg, #fceabb, #f8b500);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 30px;
+      text-shadow: 2px 2px #ff69b4;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-top: 10px;
+    }
+
+    p {
+      font-size: 1.3em;
+      margin-bottom: 30px;
+      color: #ffe;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 1.2em;
+      background: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #e91e63;
+    }
+    .gallery {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+  
+      .gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        transition: transform 0.3s ease;
+      }
+  
+      .gallery img:hover {
+        transform: scale(1.1);
+      }
+
+    .confetti, .heart, .floating-text {
+      position: fixed;
+      animation: fall linear forwards;
+      pointer-events: none;
+    }
+
+    .confetti {
+      width: 10px;
+      height: 10px;
+      top: -20px;
+      border-radius: 50%;
+    }
+
+    .heart {
+      top: 100vh;
+      font-size: 2em;
+      animation: floatUp linear forwards;
+    }
+
+    .floating-text {
+      top: 100vh;
+      font-size: 1.5em;
+      color: #fff0f5;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Selamat Ulang Tahun 🎂</h1>
+  <h2>Amiratu Bilqis yang ke-10</h2>
+  <p>Barakallahu fii umrik Moga panjang umur,murah rejeki,Semua doa yang terbaik buat adek ku Amiratu balqis 💖</p>
+
+  <button onclick="mulaiPesta()">Mulai Pesta 🎊</button>
+
+  <div class="gallery">
+    <img src="asets/amira 1.jpeg">
+    <img src="asets/amira 2.jpeg">
+    <img src="asets/amira 3.jpeg">
+    <img src="asets/amira 4.jpeg">
+  </div>
+
+  <!-- Musik -->
+  <audio id="musik-ulangtahun" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/17/audio_6ad8e33c71.mp3" type="audio/mpeg">
+    Browser tidak mendukung audio.
+  </audio>
+
+  <script>
+    function mulaiPesta() {
+      const audio = document.getElementById("musik-ulangtahun");
+      audio.play();
+
+      // Animasi konfeti
+      for (let i = 0; i < 100; i++) {
+        const konfeti = document.createElement('div');
+        konfeti.classList.add('confetti');
+        konfeti.style.left = Math.random() * 100 + "vw";
+        konfeti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        konfeti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(konfeti);
+        setTimeout(() => konfeti.remove(), 5000);
+      }
+
+      // Animasi hati
+      for (let i = 0; i < 30; i++) {
+        const hati = document.createElement('div');
+        hati.classList.add('heart');
+        hati.innerHTML = '❤️';
+        hati.style.left = Math.random() * 100 + "vw";
+        hati.style.animationDuration = (Math.random() * 4 + 3) + "s";
+        document.body.appendChild(hati);
+        setTimeout(() => hati.remove(), 6000);
+      }
+
+      // Teks mengambang
+      for (let i = 0; i < 10; i++) {
+        const teks = document.createElement('div');
+        teks.classList.add('floating-text');
+        teks.innerText = "💗 Happy Birthday Bilqis!";
+        teks.style.left = Math.random() * 90 + "vw";
+        teks.style.animationDuration = (Math.random() * 6 + 3) + "s";
+        document.body.appendChild(teks);
+        setTimeout(() => teks.remove(), 10000);
+      }
+    }
+  </script>
+
+</body>
+</html>
